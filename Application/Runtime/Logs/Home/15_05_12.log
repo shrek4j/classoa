@@ -1,0 +1,251 @@
+[ 2015-05-12T12:54:07+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.034659s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.038656s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.038763s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 14 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000058s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000144s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.108784s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.108898s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.015949s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.016030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.017172s ]
+INFO: [ app_end ] --END-- [ RunTime:0.017258s ]
+
+[ 2015-05-12T16:25:23+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000035s ]
+INFO: [ app_init ] --END-- [ RunTime:0.053402s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.018275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.018424s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 15 行.
+
+[ 2015-05-12T16:26:04+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006760s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001823s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001920s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 15 行.
+
+[ 2015-05-12T16:26:07+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006873s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000726s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000795s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 15 行.
+
+[ 2015-05-12T16:26:10+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.007304s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000870s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000963s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 15 行.
+
+[ 2015-05-12T16:27:48+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.007139s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001103s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001184s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 15 行.
+
+[ 2015-05-12T16:27:58+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006569s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000798s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000877s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 15 行.
+
+[ 2015-05-12T16:28:05+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006735s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000767s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000845s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 15 行.
+
+[ 2015-05-12T16:30:35+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.007455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001351s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001447s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 16 行.
+
+[ 2015-05-12T16:30:38+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006689s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000676s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000742s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 16 行.
+
+[ 2015-05-12T16:30:52+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?teacherId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006763s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001129s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001210s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 16 行.
+
+[ 2015-05-12T16:31:44+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?teacherId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006523s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000680s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000758s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 16 行.
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+
+[ 2015-05-12T16:31:46+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?teacherId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006815s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000695s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000769s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 16 行.
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+
+[ 2015-05-12T16:31:48+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?teacherId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.007977s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000659s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000725s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 16 行.
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+
+[ 2015-05-12T16:32:15+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?teacherId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006914s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000819s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000903s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 16 行.
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+
+[ 2015-05-12T16:32:17+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?teacherId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006578s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000899s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 16 行.
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+
+[ 2015-05-12T16:32:18+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?teacherId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006761s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000789s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000876s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 16 行.
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+
+[ 2015-05-12T16:33:19+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?teacherId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006715s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001231s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001322s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 16 行.
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+
+[ 2015-05-12T16:58:19+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?teacherId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013972s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001379s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001487s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 16 行.
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+
+[ 2015-05-12T16:58:21+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?teacherId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006438s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000696s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000768s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 16 行.
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+
+[ 2015-05-12T16:58:47+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?teacherId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006565s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001164s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001239s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 16 行.
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+
+[ 2015-05-12T16:58:49+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?teacherId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006400s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000656s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000720s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 16 行.
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+
+[ 2015-05-12T17:00:01+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?teacherId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006976s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001114s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001186s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 16 行.
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+
+[ 2015-05-12T17:00:04+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?teacherId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006872s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000682s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000755s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 16 行.
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+
+[ 2015-05-12T17:56:26+08:00 ] 127.0.0.1 /index.php/Home/Schedule/show?teacherId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.030492s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.012970s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.013068s ]
+NOTIC: [2048] Declaration of Home\Controller\ScheduleController::show() should be compatible with that of Think\Controller::show() D:\langs\php\wamp\www\Application\Home\Controller\ScheduleController.class.php 第 16 行.
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+

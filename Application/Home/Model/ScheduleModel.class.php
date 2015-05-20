@@ -19,5 +19,10 @@ class ScheduleModel extends Model {
         $scheduleList = $this->query($querySql);  
         return $scheduleList;
     }
+    
+    public function updateScheduleByTId($tId,$schedId,$dayOfWeek,$startTime,$endTime){
+        $querySql = "UPDATE classoa.classoa_schedule_template SET day_of_week=".$dayOfWeek.",start_time='".$startTime."',end_time='".$endTime."' WHERE teacher_id=".$tId." and schedule_id=".$schedId;
+        return $this->execute($querySql);  
+    }
 }
 

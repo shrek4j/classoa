@@ -3,9 +3,11 @@ namespace Home\Controller;
 use Think\Controller;
 class ScheduleController extends Controller {
     
-    public function show($teacherId=0){
-        $schedule = D('$Schedule');
-        $scheduleList = $schedule->queryByTeacherId($teacherId);
+    public function show($tId){
+        $schedule = new \Home\Model\ScheduleModel();
+        $scheduleList = $schedule->queryByTeacherId($tId);
+        print_r($scheduleList);
+        
         $this->assign('scheduleList',$scheduleList);
         $this->display();
     }

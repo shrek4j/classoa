@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{margin:0;padding:0;}
+	.cent{ width:950px; margin:0 auto;}
+	table{  border-collapse: collapse;border: none;}
+	.table-mian{ width:648px; position:relative;}
+	.oTable,.table-mian{ margin:0 auto;}
+	.oTable td,.oTable th{border:1px solid #ccc; width:80px; height: 30px; line-height: 30px; text-align: center;}
+	.addDiv{ position:absolute;left:0;top:0;width:80px;height:30px; background-color: yellow; overflow: hidden;}
+	.addInfo{margin:5px;}
+	.addDiv textarea{ padding:0;margin:0; width:100%;  background: none;
+  border: none;  resize: none;}
+  .addDiv textarea:focus{}
+	</style>
+	<script src="jquery-1.8.2.min.js"></script>
+	<script>
+	$(function(){
+		var $oTable = $('#oTable');
+		var $oTableMian = $('#tableMian');
+		var $addCurr = $('#addCurr');
+		var $dragTd;
+		var arrHeight;
+		var $tdH;
+		var divId=0;
+
+		$addCurr.click(function(){
+			createCurr();
+		});
+
+		createTable(7,21);
+		function createTable( num1,num2 ){
+			var html = '';
+			for( var i=num1;i<=num2;i++ ){
+				for( var k=i;k<(i+2);k++ ){
+					html += '<tr>';
+					for( var j=0;j< 8;j++ ){
+						if( j == 0 ){
+							html += '<td>'+setTime(i,k)+'</td>';
+						}else{
+							html += '<td class="drag-td"></td>';
+						}
+					}
+					html += '</tr>';
+				}
+				
+			}	
+			$oTable.append( html );
+			$dragTd = $oTable.find('.drag-td');
+			arrHeight = getTdHeight( $oTable );
+			$tdH = $oTable.find('td').height();
+			console.log( arrHeight );
+			console.log( arrHeight.length );
+			
+		}
+		
+		function getTdHeight( obj ){
+			var $tr = obj.find('tr');
+			var borW = parseInt(obj.find('tr').eq(0).find('th').eq(0).css('border-bottom-width'));
+			console.log(borW); 
+			var arr = [];
+			for( var i=1,len=$tr.length;i<len;i++ ){
+
+				arr.push( $tr.eq(i).position ().top + borW );
+
+			}
+
+			return arr;
+		}
+
+		function setTime( timer,timer2 ){
+			var newTime = '';
+
+			if( timer < timer2 ){ 
+				newTime = ''+timer+':30';
+			}else{
+				newTime = ''+timer+':00';
+			}
+			
+			return newTime;
+		}
+		
+		function createCurr(){
+
+			
+			$dragTd.click(function( event ){
+				
+				var l = $(this).position().left+1;
+				var t = $(this).position().top+1;
+				var w = $(this).width();
+				var h = $(this).height();
+				divId++;
+
+				var html = ' <div id="div'+ divId +'" class="addDiv" style="left:'+l+'px;top:'+t+'px;z-index:"'+ divId +'"><div class="addInfo"></div></div> ';
+				
+				$oTableMian.append( html );
+				var $addDiv = $oTableMian.find('.addDiv');
+				var $currDiv = $('#div'+divId);
+				Drag( $currDiv );
+
+				$dragTd.unbind('click');
+			});
+
+		}
+
+		function bindTd(){
+
+		}
+
+		function removerBindTd(){
+
+
+		}
+
+		function Drag( obj ){
+
+			var btn = false;
+			var dire = '';
+
+			obj.mouseover(function(event) {
+				
+				var y = event.pageY - $oTableMian.offset().top;
+				var $this = $(this);
+				//direction( $this,y,x);
+			});
+
+			obj.mousedown(function( event ){
+
+				var eventY = event.pageY;
+
+				var y = eventY - ( obj.offset().top -$oTableMian.offset().top );
+
+				var $this = $(this);
+				
+				var offT = $this.offset().top;
+				var objW = $this.width();
+				var objH = $this.height();
+				
+				$(document).mousemove(function(event) {
+				
+					var docY = event.pageY;
+					var iW,iH,scW,scH;
+					var moveY = docY - y ;
+					//var objT = obj.offset().top;
+
+					if( moveY <= arrHeight[0]  ){
+						moveY = arrHeight[0];
+					}else if( moveY > arrHeight[arrHeight.length-1] ){
+						moveY = arrHeight[arrHeight.length-1];
+					}
+
+					obj.css({
+						'top' : moveY
+					})
+
+					//if( dire == 1  ){
+
+						//iW = docX - offL;
+						//iH = docY - offT;
+						
+						
+						//$this.css({
+						//	'width' : scW,
+						//	'height': scH
+						//});
+
+					//}
+
+
+
+					
+
+					return false;
+				});
+
+				$(document).mouseup(function() {
+					$(document).off('mousemove mouseup');
+
+					var objT = parseFloat(obj.css('top'));
+					console.log( objT );
+					for( var i=0,len=arrHeight.length;i<len;i++ ){
+						if( arrHeight[i] < objT &&  (arrHeight[i]+$tdH/2) > objT  ){
+
+
+							obj.css({
+								'top' : arrHeight[i]
+							});
+
+						}else if( (arrHeight[i]+$tdH/2) < objT && (arrHeight[i]+$tdH) > objT){
+							obj.css({
+								'top' : arrHeight[i+1]
+							});
+
+						}
+
+
+					}
+
+					return false;
+				});
+			});
+
+			function direction( obj ,eventT,eventL){
+
+				var initW = parseFloat(obj.width());
+				var initH = parseFloat(obj.height());
+				var initL = parseFloat(obj.css('left'));
+				var initT = parseFloat(obj.css('top'));
+				
+				var dirL = initL + initW;
+				var dirT = initT + initH;
+
+				
+
+				
+
+			}
+
+		}
+
+
+	});
+	</script>
+</head>
+<body>
+	<div class="cent">
+		<input type="button" value="添加课程" id="addCurr">
+		<div id="tableMian" class="table-mian">
+			<table id="oTable" class="oTable">	
+				<tr>
+					<th></th>
+					<th>一</th>
+					<th>二</th>
+					<th>三</th>
+					<th>四</th>
+					<th>五</th>
+					<th>六</th>
+					<th>七</th>
+				</tr>
+			</table>
+		</div>
+	
+		
+	</div>
+	
+</body>
+</html>

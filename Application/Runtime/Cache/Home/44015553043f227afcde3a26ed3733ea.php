@@ -70,7 +70,8 @@
             
             $(div).draggable();
             $(div).resizable({
-                handles:'s'
+                handles:'s',
+                edge:15
             });
                     
         }

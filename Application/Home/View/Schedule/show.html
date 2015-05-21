@@ -31,10 +31,20 @@
             var div_end_{$key} = '{$vo.day_of_week}_{$vo.end_time}';
             
             var top = $("#"+div_start_{$key}).offset().top + border/2;//修正位置
-            var bottom = $("#"+div_end_{$key}).offset().top;
+           // var bottom = $("#"+div_end_{$key}).offset().top;
             var left = $("#"+div_start_{$key}).offset().left + border/2;//修正位置
             var width = default_width;
-            var height = bottom - top - 2*border;//修正位置
+           // var height = bottom - top - 2*border;//修正位置
+            var timeUnit;
+            for(var i=0;i<timeOfDay.length;i++){
+                if(timeOfDay[i] == '{$vo.start_time}'){
+                    timeUnit = i;
+                }
+                if(timeOfDay[i] == '{$vo.end_time}'){
+                    timeUnit = i - timeUnit;
+                }
+            }
+            var height = timeUnit * default_height - 5;
             
             var id = '{$vo.schedule_id}';
             var dayOfWeek = '{$vo.day_of_week}';
@@ -49,7 +59,9 @@
 
         //创建一个课程div
         function createDiv(id,dayOfWeek,startTime,endTime,top,height,left,width,classType,studNames){
-            var div=$('<div class="defaultClassDiv" data-options="onStopDrag:onStopDrag,onStopResize:onStopResize" onmouseover="mouseover(this);">'+classType + '<br><a href="#" style="color: white">more...</a></div>');        //创建一个div
+            var div=$('<div class="defaultClassDiv" data-options="handle:\'#'+id+'\',onStopDrag:onStopDrag,onStopResize:onStopResize" onmouseover="mouseover(this);">' +
+                        '<div id="'+id+'" style="padding:5px;background:#C5DA01;color:#fff;font-family:Arial;">'+classType+'</div>' +
+                        '<a href="#" style="color: white">more...</a></div>');        //创建一个div
             div.attr('id',id);        //给div设置id
             div.attr('dayOfWeek',dayOfWeek);
             div.attr('startTime',startTime);
@@ -79,7 +91,7 @@
 
         var dayOfWeek = ['1','2','3','4','5','6','7'];
         var timeOfDay = ['0730','0800','0830','0900','0930','1000','1030','1100','1130','1200','1230','1300','1330','1400','1430','1500','1530','1600','1630','1700',
-                            '1730','1800','1830','1900','1930','2000','2030','2100'];
+                            '1730','1800','1830','1900','1930','2000','2030','2100','2130'];
         function onStopDrag(e){
             var d = e.data;
             
@@ -121,6 +133,7 @@
                 if(timeOfDay[i] == newStartTime){
                     if(i+timeUnit < timeOfDay.length){
                         newEndTime = timeOfDay[i+timeUnit];
+                        break;
                     }
                 }
             }
@@ -138,7 +151,7 @@
                url: "saveSchedule",
                data: "schedId="+currId+"&dayOfWeek="+newDayOfWeek+"&startTime="+newStartTime+"&endTime="+newEndTime,
                success: function(msg){
-                    alert(msg);
+                   
                }
             });
           
@@ -161,7 +174,8 @@
             
             //2.更新UI高度
             var newHeight = timeUnit * default_height - 5;
-            $("#"+currId).css({'height':newHeight});
+            var left = $("#"+currId).offset().left;
+            $("#"+currId).css({'height':newHeight,'left':left});
             
             
             //1.计算结束时间
@@ -171,6 +185,7 @@
                 if(timeOfDay[i] == startTime){
                     if(i+timeUnit < timeOfDay.length){
                         newEndTime = timeOfDay[i+timeUnit];
+                        break;
                     }
                 }
             }
@@ -178,8 +193,32 @@
             if(newEndTime != undefined){
                 $("#"+currId).attr('endTime',newEndTime);
             }
+            
+            var newDayOfWeek = $("#"+currId).attr('dayOfWeek');
+            var newStartTime = $("#"+currId).attr('startTime');
+            var newEndTime = $("#"+currId).attr('endTime');
+            
+            //保存数据
+            $.ajax({
+               type: "POST",
+               url: "saveSchedule",
+               data: "schedId="+currId+"&dayOfWeek="+newDayOfWeek+"&startTime="+newStartTime+"&endTime="+newEndTime,
+               success: function(msg){
+                   
+               }
+            });
         }
         //课程div resize事件  end
+    </script>
+    
+    <script type="text/javascript">
+        $(function(){
+            $('.right td').dblclick(
+                function () { 
+                    alert($(this).height()); 
+                }
+            );
+        });
     </script>
     </head>
     <body>
@@ -210,70 +249,70 @@
               <td>10:00</td><td id="1_1000"></td><td id="2_1000"></td><td id="3_1000"></td><td id="4_1000"></td><td id="5_1000"></td><td id="6_1000"></td><td id="7_1000"></td>
             </tr>
             <tr>
-              <td>10:30</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>10:30</td><td id="1_1030"></td><td id="2_1030"></td><td id="3_1030"></td><td id="4_1030"></td><td id="5_1030"></td><td id="6_1030"></td><td id="7_1030"></td>
             </tr>
             <tr>
-              <td>11:00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>11:00</td><td id="1_1100"></td><td id="2_1100"></td><td id="3_1100"></td><td id="4_1100"></td><td id="5_1100"></td><td id="6_1100"></td><td id="7_1100"></td>
             </tr>
             <tr>
-              <td>11:30</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>11:30</td><td id="1_1130"></td><td id="2_1130"></td><td id="3_1130"></td><td id="4_1130"></td><td id="5_1130"></td><td id="6_1130"></td><td id="7_1130"></td>
             </tr>
             <tr>
-              <td>12:00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>12:00</td><td id="1_1200"></td><td id="2_1200"></td><td id="3_1200"></td><td id="4_1200"></td><td id="5_1200"></td><td id="6_1200"></td><td id="7_1200"></td>
             </tr>
             <tr>
-              <td>12:30</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>12:30</td><td id="1_1230"></td><td id="2_1230"></td><td id="3_1230"></td><td id="4_1230"></td><td id="5_1230"></td><td id="6_1230"></td><td id="7_1230"></td>
             </tr>
             <tr>
-              <td>13:00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>13:00</td><td id="1_1300"></td><td id="2_1300"></td><td id="3_1300"></td><td id="4_1300"></td><td id="5_1300"></td><td id="6_1300"></td><td id="7_1300"></td>
             </tr>
             <tr>
-              <td>13:30</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>13:30</td><td id="1_1330"></td><td id="2_1330"></td><td id="3_1330"></td><td id="4_1330"></td><td id="5_1330"></td><td id="6_1330"></td><td id="7_1330"></td>
             </tr>
             <tr>
-              <td>14:00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>14:00</td><td id="1_1400"></td><td id="2_1400"></td><td id="3_1400"></td><td id="4_1400"></td><td id="5_1400"></td><td id="6_1400"></td><td id="7_1400"></td>
             </tr>
             <tr>
-              <td>14:30</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>14:30</td><td id="1_1430"></td><td id="2_1430"></td><td id="3_1430"></td><td id="4_1430"></td><td id="5_1430"></td><td id="6_1430"></td><td id="7_1430"></td>
             </tr>
             <tr>
-              <td>15:00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>15:00</td><td id="1_1500"></td><td id="2_1500"></td><td id="3_1500"></td><td id="4_1500"></td><td id="5_1500"></td><td id="6_1500"></td><td id="7_1500"></td>
             </tr>
             <tr>
-              <td>15:30</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>15:30</td><td id="1_1530"></td><td id="2_1530"></td><td id="3_1530"></td><td id="4_1530"></td><td id="5_1530"></td><td id="6_1530"></td><td id="7_1530"></td>
             </tr>
             <tr>
-              <td>16:00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>16:00</td><td id="1_1600"></td><td id="2_1600"></td><td id="3_1600"></td><td id="4_1600"></td><td id="5_1600"></td><td id="6_1600"></td><td id="7_1600"></td>
             </tr>
             <tr>
-              <td>16:30</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>16:30</td><td id="1_1630"></td><td id="2_1630"></td><td id="3_1630"></td><td id="4_1630"></td><td id="5_1630"></td><td id="6_1630"></td><td id="7_1630"></td>
             </tr>
             <tr>
-              <td>17:00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>17:00</td><td id="1_1700"></td><td id="2_1700"></td><td id="3_1700"></td><td id="4_1700"></td><td id="5_1700"></td><td id="6_1700"></td><td id="7_1700"></td>
             </tr>
             <tr>
-              <td>17:30</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>17:30</td><td id="1_1730"></td><td id="2_1730"></td><td id="3_1730"></td><td id="4_1730"></td><td id="5_1730"></td><td id="6_1730"></td><td id="7_1730"></td>
             </tr>
             <tr>
-              <td>18:00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>18:00</td><td id="1_1800"></td><td id="2_1800"></td><td id="3_1800"></td><td id="4_1800"></td><td id="5_1800"></td><td id="6_1800"></td><td id="7_1800"></td>
             </tr>
             <tr>
-              <td>18:30</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>18:30</td><td id="1_1830"></td><td id="2_1830"></td><td id="3_1830"></td><td id="4_1830"></td><td id="5_1830"></td><td id="6_1830"></td><td id="7_1830"></td>
             </tr>
             <tr>
-              <td>19:00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>19:00</td><td id="1_1900"></td><td id="2_1900"></td><td id="3_1900"></td><td id="4_1900"></td><td id="5_1900"></td><td id="6_1900"></td><td id="7_1900"></td>
             </tr>
             <tr>
-              <td>19:30</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>19:30</td><td id="1_1930"></td><td id="2_1930"></td><td id="3_1930"></td><td id="4_1930"></td><td id="5_1930"></td><td id="6_1930"></td><td id="7_1930"></td>
             </tr>
             <tr>
-              <td>20:00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>20:00</td><td id="1_2000"></td><td id="2_2000"></td><td id="3_2000"></td><td id="4_2000"></td><td id="5_2000"></td><td id="6_2000"></td><td id="7_2000"></td>
             </tr>
             <tr>
-              <td>20:30</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>20:30</td><td id="1_2030"></td><td id="2_2030"></td><td id="3_2030"></td><td id="4_2030"></td><td id="5_2030"></td><td id="6_2030"></td><td id="7_2030"></td>
             </tr>
             <tr>
-              <td>21:00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td>21:00</td><td id="1_2100"></td><td id="2_2100"></td><td id="3_2100"></td><td id="4_2100"></td><td id="5_2100"></td><td id="6_2100"></td><td id="7_2100"></td>
             </tr>
         </table>
         </div>

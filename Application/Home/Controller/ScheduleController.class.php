@@ -3,7 +3,10 @@ namespace Home\Controller;
 use Think\Controller;
 class ScheduleController extends Controller {
     
-    public function show($tId){
+    public function show(){
+        session('tId',1);
+        $tId = session('tId');
+        
         $schedule = new \Home\Model\ScheduleModel();
         $scheduleList = $schedule->queryByTeacherId($tId);
         

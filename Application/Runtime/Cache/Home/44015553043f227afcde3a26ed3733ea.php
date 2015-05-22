@@ -3,15 +3,34 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <style type="text/css">
         .defaultClassDiv{
-            background:#72CFD7;
+            background:#70E1EF;
             color:#FFF;
             position:absolute;
-            border:solid white 2px;
+            border:solid #CBF3FB 2px;
             font-size:6px;
             font-family:Arial;
             text-align:center;
+            opacity:0.9;
         }
     
+        .singleTdTop{
+            border-width: 1px 0px 0px 0px;border-color: black; border-style:dashed solid solid solid;
+        }
+        .singleTdTopAndLeft{
+            border-width: 1px 0px 0px 1px;border-color: black; border-style:dashed solid solid solid;
+        }
+        
+        .doubleTdTop{
+            border-width: 1px 0px 0px 0px;border-color: black; border-style:solid solid solid solid;
+        }
+        
+        .doubleTdTopAndLeft{
+            border-width: 1px 0px 0px 1px;border-color: black; border-style:solid solid solid solid;
+        }
+        
+        .topTdLeft{
+            border-width: 0px 0px 0px 1px;border-color: black; border-style:solid solid solid solid;
+        }
     </style>
         <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/icon.css">
@@ -58,7 +77,7 @@
         //创建一个课程div
         function createDiv(id,dayOfWeek,startTime,endTime,top,height,left,width,classType,studNames){
             var div=$('<div class="defaultClassDiv" data-options="handle:\'#'+id+'\',onStopDrag:onStopDrag,onStopResize:onStopResize" onmouseover="mouseover(this);">' +
-                        '<div id="'+id+'" style="padding:5px;background:#C5DA01;color:#fff;font-family:Arial;">'+classType+'</div>' +
+                        '<div id="'+id+'" style="padding:4px;background:#065FB9;color:#fff;font-family:Arial;">'+classType+'</div>' +
                         '<a href="#" style="color: white">more...</a></div>');        //创建一个div
             div.attr('id',id);        //给div设置id
             div.attr('dayOfWeek',dayOfWeek);
@@ -220,98 +239,98 @@
         });
     </script>
     </head>
-    <body>
+    <body style="background: #CBF3FB;">
         <div id="divIncluder">
         </div>
         <div class="right">
-        <table align="center" rules="all" 
-         style="font-family: David; font-size: large; border: 2px solid black; height:700px;text-align:center">
+        <table align="center"
+         style="background:#FFF7A9;font-family:Arial,'黑体'; font-size: middle; border: 2px solid black; height:700px;text-align:center">
             <tr></tr>
-                <td width="80px"></td><td width="80px" id="1_">Mon</td><td width="80px" id="2_">Tus</td><td width="80px" id="3_">Wen</td><td width="80px" id="4_">Thu</td><td width="80px" id="5_">Fri</td><td width="80px" id="6_">Sat</td><td width="80px" id="7_">Sun</td>
+                <td width="80px"></td><td width="80px" id="1_" class="topTdLeft">星期一</td><td width="80px" id="2_"class="topTdLeft">星期二</td><td width="80px" id="3_"class="topTdLeft">星期三</td><td width="80px" id="4_"class="topTdLeft">星期四</td><td width="80px" id="5_"class="topTdLeft">星期五</td><td width="80px" id="6_"class="topTdLeft">星期六</td><td width="80px" id="7_"class="topTdLeft">星期日</td>
             </tr>
             <tr>
-              <td>07:30</td><td id="1_0730"></td><td id="2_0730"></td><td id="3_0730"></td><td id="4_0730"></td><td id="5_0730"></td><td id="6_0730"></td><td id="7_0730"></td>
+              <td class="singleTdTop">07:30</td><td id="1_0730" class="singleTdTopAndLeft"></td><td id="2_0730" class="singleTdTopAndLeft"></td><td id="3_0730" class="singleTdTopAndLeft"></td><td id="4_0730" class="singleTdTopAndLeft"></td><td id="5_0730" class="singleTdTopAndLeft"></td><td id="6_0730" class="singleTdTopAndLeft"></td><td id="7_0730" class="singleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>08:00</td><td id="1_0800"></td><td id="2_0800"></td><td id="3_0800"></td><td id="4_0800"></td><td id="5_0800"></td><td id="6_0800"></td><td id="7_0800"></td>
+              <td class="doubleTdTop"><b>08:00</b></td><td id="1_0800" class="doubleTdTopAndLeft"></td><td id="2_0800" class="doubleTdTopAndLeft"></td><td id="3_0800" class="doubleTdTopAndLeft"></td><td id="4_0800" class="doubleTdTopAndLeft"></td><td id="5_0800" class="doubleTdTopAndLeft"></td><td id="6_0800" class="doubleTdTopAndLeft"></td><td id="7_0800" class="doubleTdTopAndLeft"></td>
             </tr>
              <tr>
-              <td>08:30</td><td id="1_0830"></td><td id="2_0830"></td><td id="3_0830"></td><td id="4_0830"></td><td id="5_0830"></td><td id="6_0830"></td><td id="7_0830"></td>
+              <td class="singleTdTop">08:30</td><td id="1_0830" class="singleTdTopAndLeft"></td><td id="2_0830" class="singleTdTopAndLeft"></td><td id="3_0830" class="singleTdTopAndLeft"></td><td id="4_0830" class="singleTdTopAndLeft"></td><td id="5_0830" class="singleTdTopAndLeft"></td><td id="6_0830" class="singleTdTopAndLeft"></td><td id="7_0830" class="singleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>09:00</td><td id="1_0900"></td><td id="2_0900"></td><td id="3_0900"></td><td id="4_0900"></td><td id="5_0900"></td><td id="6_0900"></td><td id="7_0900"></td>
+              <td class="doubleTdTop">09:00</td><td id="1_0900" class="doubleTdTopAndLeft"></td><td id="2_0900" class="doubleTdTopAndLeft"></td><td id="3_0900" class="doubleTdTopAndLeft"></td><td id="4_0900" class="doubleTdTopAndLeft"></td><td id="5_0900" class="doubleTdTopAndLeft"></td><td id="6_0900" class="doubleTdTopAndLeft"></td><td id="7_0900" class="doubleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>09:30</td><td id="1_0930"></td><td id="2_0930"></td><td id="3_0930"></td><td id="4_0930"></td><td id="5_0930"></td><td id="6_0930"></td><td id="7_0930"></td>
+              <td class="singleTdTop">09:30</td><td id="1_0930" class="singleTdTopAndLeft"></td><td id="2_0930" class="singleTdTopAndLeft"></td><td id="3_0930" class="singleTdTopAndLeft"></td><td id="4_0930" class="singleTdTopAndLeft"></td><td id="5_0930" class="singleTdTopAndLeft"></td><td id="6_0930" class="singleTdTopAndLeft"></td><td id="7_0930" class="singleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>10:00</td><td id="1_1000"></td><td id="2_1000"></td><td id="3_1000"></td><td id="4_1000"></td><td id="5_1000"></td><td id="6_1000"></td><td id="7_1000"></td>
+              <td class="doubleTdTop">10:00</td><td id="1_1000" class="doubleTdTopAndLeft"></td><td id="2_1000" class="doubleTdTopAndLeft"></td><td id="3_1000" class="doubleTdTopAndLeft"></td><td id="4_1000" class="doubleTdTopAndLeft"></td><td id="5_1000" class="doubleTdTopAndLeft"></td><td id="6_1000" class="doubleTdTopAndLeft"></td><td id="7_1000" class="doubleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>10:30</td><td id="1_1030"></td><td id="2_1030"></td><td id="3_1030"></td><td id="4_1030"></td><td id="5_1030"></td><td id="6_1030"></td><td id="7_1030"></td>
+              <td class="singleTdTop">10:30</td><td id="1_1030" class="singleTdTopAndLeft"></td><td id="2_1030" class="singleTdTopAndLeft"></td><td id="3_1030" class="singleTdTopAndLeft"></td><td id="4_1030" class="singleTdTopAndLeft"></td><td id="5_1030" class="singleTdTopAndLeft"></td><td id="6_1030" class="singleTdTopAndLeft"></td><td id="7_1030" class="singleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>11:00</td><td id="1_1100"></td><td id="2_1100"></td><td id="3_1100"></td><td id="4_1100"></td><td id="5_1100"></td><td id="6_1100"></td><td id="7_1100"></td>
+              <td class="doubleTdTop">11:00</td><td id="1_1100" class="doubleTdTopAndLeft"></td><td id="2_1100" class="doubleTdTopAndLeft"></td><td id="3_1100" class="doubleTdTopAndLeft"></td><td id="4_1100" class="doubleTdTopAndLeft"></td><td id="5_1100" class="doubleTdTopAndLeft"></td><td id="6_1100" class="doubleTdTopAndLeft"></td><td id="7_1100" class="doubleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>11:30</td><td id="1_1130"></td><td id="2_1130"></td><td id="3_1130"></td><td id="4_1130"></td><td id="5_1130"></td><td id="6_1130"></td><td id="7_1130"></td>
+              <td class="singleTdTop">11:30</td><td id="1_1130" class="singleTdTopAndLeft"></td><td id="2_1130" class="singleTdTopAndLeft"></td><td id="3_1130" class="singleTdTopAndLeft"></td><td id="4_1130" class="singleTdTopAndLeft"></td><td id="5_1130" class="singleTdTopAndLeft"></td><td id="6_1130" class="singleTdTopAndLeft"></td><td id="7_1130" class="singleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>12:00</td><td id="1_1200"></td><td id="2_1200"></td><td id="3_1200"></td><td id="4_1200"></td><td id="5_1200"></td><td id="6_1200"></td><td id="7_1200"></td>
+              <td class="doubleTdTop"><b>12:00</b></td><td id="1_1200" class="doubleTdTopAndLeft"></td><td id="2_1200" class="doubleTdTopAndLeft"></td><td id="3_1200" class="doubleTdTopAndLeft"></td><td id="4_1200" class="doubleTdTopAndLeft"></td><td id="5_1200" class="doubleTdTopAndLeft"></td><td id="6_1200" class="doubleTdTopAndLeft"></td><td id="7_1200" class="doubleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>12:30</td><td id="1_1230"></td><td id="2_1230"></td><td id="3_1230"></td><td id="4_1230"></td><td id="5_1230"></td><td id="6_1230"></td><td id="7_1230"></td>
+              <td class="singleTdTop">12:30</td><td id="1_1230" class="singleTdTopAndLeft"></td><td id="2_1230" class="singleTdTopAndLeft"></td><td id="3_1230" class="singleTdTopAndLeft"></td><td id="4_1230" class="singleTdTopAndLeft"></td><td id="5_1230" class="singleTdTopAndLeft"></td><td id="6_1230" class="singleTdTopAndLeft"></td><td id="7_1230" class="singleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>13:00</td><td id="1_1300"></td><td id="2_1300"></td><td id="3_1300"></td><td id="4_1300"></td><td id="5_1300"></td><td id="6_1300"></td><td id="7_1300"></td>
+              <td class="doubleTdTop">13:00</td><td id="1_1300" class="doubleTdTopAndLeft"></td><td id="2_1300" class="doubleTdTopAndLeft"></td><td id="3_1300" class="doubleTdTopAndLeft"></td><td id="4_1300" class="doubleTdTopAndLeft"></td><td id="5_1300" class="doubleTdTopAndLeft"></td><td id="6_1300" class="doubleTdTopAndLeft"></td><td id="7_1300" class="doubleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>13:30</td><td id="1_1330"></td><td id="2_1330"></td><td id="3_1330"></td><td id="4_1330"></td><td id="5_1330"></td><td id="6_1330"></td><td id="7_1330"></td>
+              <td class="singleTdTop">13:30</td><td id="1_1330" class="singleTdTopAndLeft"></td><td id="2_1330" class="singleTdTopAndLeft"></td><td id="3_1330" class="singleTdTopAndLeft"></td><td id="4_1330" class="singleTdTopAndLeft"></td><td id="5_1330" class="singleTdTopAndLeft"></td><td id="6_1330" class="singleTdTopAndLeft"></td><td id="7_1330" class="singleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>14:00</td><td id="1_1400"></td><td id="2_1400"></td><td id="3_1400"></td><td id="4_1400"></td><td id="5_1400"></td><td id="6_1400"></td><td id="7_1400"></td>
+              <td class="doubleTdTop">14:00</td><td id="1_1400" class="doubleTdTopAndLeft"></td><td id="2_1400" class="doubleTdTopAndLeft"></td><td id="3_1400" class="doubleTdTopAndLeft"></td><td id="4_1400" class="doubleTdTopAndLeft"></td><td id="5_1400" class="doubleTdTopAndLeft"></td><td id="6_1400" class="doubleTdTopAndLeft"></td><td id="7_1400" class="doubleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>14:30</td><td id="1_1430"></td><td id="2_1430"></td><td id="3_1430"></td><td id="4_1430"></td><td id="5_1430"></td><td id="6_1430"></td><td id="7_1430"></td>
+              <td class="singleTdTop">14:30</td><td id="1_1430" class="singleTdTopAndLeft"></td><td id="2_1430" class="singleTdTopAndLeft"></td><td id="3_1430" class="singleTdTopAndLeft"></td><td id="4_1430" class="singleTdTopAndLeft"></td><td id="5_1430" class="singleTdTopAndLeft"></td><td id="6_1430" class="singleTdTopAndLeft"></td><td id="7_1430" class="singleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>15:00</td><td id="1_1500"></td><td id="2_1500"></td><td id="3_1500"></td><td id="4_1500"></td><td id="5_1500"></td><td id="6_1500"></td><td id="7_1500"></td>
+              <td class="doubleTdTop">15:00</td><td id="1_1500" class="doubleTdTopAndLeft"></td><td id="2_1500" class="doubleTdTopAndLeft"></td><td id="3_1500" class="doubleTdTopAndLeft"></td><td id="4_1500" class="doubleTdTopAndLeft"></td><td id="5_1500" class="doubleTdTopAndLeft"></td><td id="6_1500" class="doubleTdTopAndLeft"></td><td id="7_1500" class="doubleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>15:30</td><td id="1_1530"></td><td id="2_1530"></td><td id="3_1530"></td><td id="4_1530"></td><td id="5_1530"></td><td id="6_1530"></td><td id="7_1530"></td>
+              <td class="singleTdTop">15:30</td><td id="1_1530" class="singleTdTopAndLeft"></td><td id="2_1530" class="singleTdTopAndLeft"></td><td id="3_1530" class="singleTdTopAndLeft"></td><td id="4_1530" class="singleTdTopAndLeft"></td><td id="5_1530" class="singleTdTopAndLeft"></td><td id="6_1530" class="singleTdTopAndLeft"></td><td id="7_1530" class="singleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>16:00</td><td id="1_1600"></td><td id="2_1600"></td><td id="3_1600"></td><td id="4_1600"></td><td id="5_1600"></td><td id="6_1600"></td><td id="7_1600"></td>
+              <td class="doubleTdTop"><b>16:00</b></td><td id="1_1600" class="doubleTdTopAndLeft"></td><td id="2_1600" class="doubleTdTopAndLeft"></td><td id="3_1600" class="doubleTdTopAndLeft"></td><td id="4_1600" class="doubleTdTopAndLeft"></td><td id="5_1600" class="doubleTdTopAndLeft"></td><td id="6_1600" class="doubleTdTopAndLeft"></td><td id="7_1600" class="doubleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>16:30</td><td id="1_1630"></td><td id="2_1630"></td><td id="3_1630"></td><td id="4_1630"></td><td id="5_1630"></td><td id="6_1630"></td><td id="7_1630"></td>
+              <td class="singleTdTop">16:30</td><td id="1_1630" class="singleTdTopAndLeft"></td><td id="2_1630" class="singleTdTopAndLeft"></td><td id="3_1630" class="singleTdTopAndLeft"></td><td id="4_1630" class="singleTdTopAndLeft"></td><td id="5_1630" class="singleTdTopAndLeft"></td><td id="6_1630" class="singleTdTopAndLeft"></td><td id="7_1630" class="singleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>17:00</td><td id="1_1700"></td><td id="2_1700"></td><td id="3_1700"></td><td id="4_1700"></td><td id="5_1700"></td><td id="6_1700"></td><td id="7_1700"></td>
+              <td class="doubleTdTop">17:00</td><td id="1_1700" class="doubleTdTopAndLeft"></td><td id="2_1700" class="doubleTdTopAndLeft"></td><td id="3_1700" class="doubleTdTopAndLeft"></td><td id="4_1700" class="doubleTdTopAndLeft"></td><td id="5_1700" class="doubleTdTopAndLeft"></td><td id="6_1700" class="doubleTdTopAndLeft"></td><td id="7_1700" class="doubleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>17:30</td><td id="1_1730"></td><td id="2_1730"></td><td id="3_1730"></td><td id="4_1730"></td><td id="5_1730"></td><td id="6_1730"></td><td id="7_1730"></td>
+              <td class="singleTdTop">17:30</td><td id="1_1730" class="singleTdTopAndLeft"></td><td id="2_1730" class="singleTdTopAndLeft"></td><td id="3_1730" class="singleTdTopAndLeft"></td><td id="4_1730" class="singleTdTopAndLeft"></td><td id="5_1730" class="singleTdTopAndLeft"></td><td id="6_1730" class="singleTdTopAndLeft"></td><td id="7_1730" class="singleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>18:00</td><td id="1_1800"></td><td id="2_1800"></td><td id="3_1800"></td><td id="4_1800"></td><td id="5_1800"></td><td id="6_1800"></td><td id="7_1800"></td>
+              <td class="doubleTdTop">18:00</td><td id="1_1800" class="doubleTdTopAndLeft"></td><td id="2_1800" class="doubleTdTopAndLeft"></td><td id="3_1800" class="doubleTdTopAndLeft"></td><td id="4_1800" class="doubleTdTopAndLeft"></td><td id="5_1800" class="doubleTdTopAndLeft"></td><td id="6_1800" class="doubleTdTopAndLeft"></td><td id="7_1800" class="doubleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>18:30</td><td id="1_1830"></td><td id="2_1830"></td><td id="3_1830"></td><td id="4_1830"></td><td id="5_1830"></td><td id="6_1830"></td><td id="7_1830"></td>
+              <td class="singleTdTop">18:30</td><td id="1_1830" class="singleTdTopAndLeft"></td><td id="2_1830" class="singleTdTopAndLeft"></td><td id="3_1830" class="singleTdTopAndLeft"></td><td id="4_1830" class="singleTdTopAndLeft"></td><td id="5_1830" class="singleTdTopAndLeft"></td><td id="6_1830" class="singleTdTopAndLeft"></td><td id="7_1830" class="singleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>19:00</td><td id="1_1900"></td><td id="2_1900"></td><td id="3_1900"></td><td id="4_1900"></td><td id="5_1900"></td><td id="6_1900"></td><td id="7_1900"></td>
+              <td class="doubleTdTop">19:00</td><td id="1_1900" class="doubleTdTopAndLeft"></td><td id="2_1900" class="doubleTdTopAndLeft"></td><td id="3_1900" class="doubleTdTopAndLeft"></td><td id="4_1900" class="doubleTdTopAndLeft"></td><td id="5_1900" class="doubleTdTopAndLeft"></td><td id="6_1900" class="doubleTdTopAndLeft"></td><td id="7_1900" class="doubleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>19:30</td><td id="1_1930"></td><td id="2_1930"></td><td id="3_1930"></td><td id="4_1930"></td><td id="5_1930"></td><td id="6_1930"></td><td id="7_1930"></td>
+              <td class="singleTdTop">19:30</td><td id="1_1930" class="singleTdTopAndLeft"></td><td id="2_1930" class="singleTdTopAndLeft"></td><td id="3_1930" class="singleTdTopAndLeft"></td><td id="4_1930" class="singleTdTopAndLeft"></td><td id="5_1930" class="singleTdTopAndLeft"></td><td id="6_1930" class="singleTdTopAndLeft"></td><td id="7_1930" class="singleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>20:00</td><td id="1_2000"></td><td id="2_2000"></td><td id="3_2000"></td><td id="4_2000"></td><td id="5_2000"></td><td id="6_2000"></td><td id="7_2000"></td>
+              <td class="doubleTdTop">20:00</td><td id="1_2000" class="doubleTdTopAndLeft"></td><td id="2_2000" class="doubleTdTopAndLeft"></td><td id="3_2000" class="doubleTdTopAndLeft"></td><td id="4_2000" class="doubleTdTopAndLeft"></td><td id="5_2000" class="doubleTdTopAndLeft"></td><td id="6_2000" class="doubleTdTopAndLeft"></td><td id="7_2000" class="doubleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>20:30</td><td id="1_2030"></td><td id="2_2030"></td><td id="3_2030"></td><td id="4_2030"></td><td id="5_2030"></td><td id="6_2030"></td><td id="7_2030"></td>
+              <td class="singleTdTop">20:30</td><td id="1_2030" class="singleTdTopAndLeft"></td><td id="2_2030" class="singleTdTopAndLeft"></td><td id="3_2030" class="singleTdTopAndLeft"></td><td id="4_2030" class="singleTdTopAndLeft"></td><td id="5_2030" class="singleTdTopAndLeft"></td><td id="6_2030" class="singleTdTopAndLeft"></td><td id="7_2030" class="singleTdTopAndLeft"></td>
             </tr>
             <tr>
-              <td>21:00</td><td id="1_2100"></td><td id="2_2100"></td><td id="3_2100"></td><td id="4_2100"></td><td id="5_2100"></td><td id="6_2100"></td><td id="7_2100"></td>
+              <td class="doubleTdTop">21:00</td><td id="1_2100" class="doubleTdTopAndLeft"></td><td id="2_2100" class="doubleTdTopAndLeft"></td><td id="3_2100" class="doubleTdTopAndLeft"></td><td id="4_2100" class="doubleTdTopAndLeft"></td><td id="5_2100" class="doubleTdTopAndLeft"></td><td id="6_2100" class="doubleTdTopAndLeft"></td><td id="7_2100" class="doubleTdTopAndLeft"></td>
             </tr>
         </table>
         </div>

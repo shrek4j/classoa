@@ -25,3 +25,14 @@ CREATE TABLE `classoa_teacher` (
   `inst_id` int(10) DEFAULT NULL COMMENT 'FK_classoa_institute',
   PRIMARY KEY (`teacher_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `classoa_schedule_template` (
+  `schedule_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `teacher_id` int(10) NOT NULL COMMENT '老师ID',
+  `day_of_week` int(1) NOT NULL COMMENT '1-7 星期一-星期日',
+  `start_time` varchar(10) NOT NULL COMMENT '开始时间  ''07:30''',
+  `end_time` varchar(10) NOT NULL COMMENT '结束时间  ''09:30''',
+  `class_type` varchar(50) DEFAULT NULL COMMENT '课程类型',
+  `remark` varchar(200) DEFAULT NULL COMMENT '备注信息',
+  PRIMARY KEY (`schedule_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;

@@ -3,7 +3,7 @@ namespace Home\Controller;
 use Think\Controller;
 class UserController extends Controller {
     public function login(){
-        echo 'user login!';
+        $this->display();
     }
     
     public function logout(){

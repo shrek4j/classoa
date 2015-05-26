@@ -9,6 +9,7 @@ CREATE TABLE `classoa_student` (
   `name` varchar(20) NOT NULL,
   `mobile` varchar(15) DEFAULT NULL,
   `balance` int(10) DEFAULT '0' COMMENT '余额',
+  `inst_id` int(10) NOT NULL,
   PRIMARY KEY (`stud_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 

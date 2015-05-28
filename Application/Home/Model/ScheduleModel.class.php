@@ -2,8 +2,8 @@
 namespace Home\Model;
 use Think\Model;
 class ScheduleModel extends Model {
-    protected $connection = 'DB_CONFIG1';//µ÷ÓÃÅäÖÃÎÄ¼şÖĞµÄÊı¾İ¿âÅäÖÃ1
-    protected $autoCheckFields =false;//Ä£ĞÍºÍÊı¾İ±íÎŞĞèÒ»Ò»¶ÔÓ¦
+    protected $connection = 'DB_CONFIG1';//è°ƒç”¨é…ç½®æ–‡ä»¶ä¸­çš„æ•°æ®åº“é…ç½®1
+    protected $autoCheckFields =false;//æ¨¡å‹å’Œæ•°æ®è¡¨æ— éœ€ä¸€ä¸€å¯¹åº”
     
     public function queryByTeacherId($teacherId){
         $querySql = "select st.* from classoa_schedule_template st 

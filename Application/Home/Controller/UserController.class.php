@@ -9,4 +9,15 @@ class UserController extends Controller {
     public function logout(){
         
     }
+    
+    public function doLogin($loginname,$password){
+        $user = new \Home\Model\UserModel();
+        $result = $user->queryUser($loginname,$password);
+        if(!empty($result) && count($result) == 1){
+            session('tId',$result[0]['teacher_id']);
+            $this->success('登陆成功', '/index.php/Home/Schedule/show',2);
+        }else{
+            $this->error('登陆失败');
+        }    
+    }
 }

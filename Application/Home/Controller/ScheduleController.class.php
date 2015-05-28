@@ -2,9 +2,9 @@
 namespace Home\Controller;
 use Think\Controller;
 class ScheduleController extends Controller {
-    
+
     public function show(){
-        session('tId',1);
+      //  session('tId',1);
         $tId = session('tId');
         
         $schedule = new \Home\Model\ScheduleModel();
@@ -15,7 +15,7 @@ class ScheduleController extends Controller {
     }
     
     public function saveSchedule($schedId,$dayOfWeek,$startTime,$endTime){
-        session('tId',1);
+      //  session('tId',1);
         $tId = session('tId');
         
         if($tId != 0){

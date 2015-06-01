@@ -4,7 +4,6 @@ use Think\Controller;
 class ScheduleController extends Controller {
 
     public function show(){
-      //  session('tId',1);
         $tId = session('tId');
         
         $schedule = new \Home\Model\ScheduleModel();
@@ -14,20 +13,43 @@ class ScheduleController extends Controller {
         $this->display();
     }
     
-    public function saveSchedule($schedId,$dayOfWeek,$startTime,$endTime){
-      //  session('tId',1);
+    public function updateSchedule($schedId,$dayOfWeek,$startTime,$endTime){
         $tId = session('tId');
         
-        if($tId != 0){
-            $schedule = new \Home\Model\ScheduleModel();
-            $result = $schedule->updateScheduleByTId($tId,$schedId,$dayOfWeek,$startTime,$endTime);
-            if($result == 1){
-               $data = 'ok'; 
-            }else{
-                $data = "false";
-            }
-            $this->ajaxReturn($data);
+        $schedule = new \Home\Model\ScheduleModel();
+        $result = $schedule->updateScheduleByTId($tId,$schedId,$dayOfWeek,$startTime,$endTime);
+        if($result == 1){
+           $data = 'ok'; 
+        }else{
+            $data = "false";
         }
-        
+        $this->ajaxReturn($data);
     }
+    
+    public function saveSchedule($classTag,$dayOfWeek,$startTime,$endTime){
+        $tId = session('tId');
+    
+        $schedule = new \Home\Model\ScheduleModel();
+        $result = $schedule->saveScheduleByTId($tId,$classTag,$dayOfWeek,$startTime,$endTime);
+        if(empty($result)){
+            $result = "false";
+        }else{
+            
+        }
+        $this->ajaxReturn($result);
+    }
+    
+    public function deleteSchedule($schedId){
+        $tId = session('tId');
+        
+        $schedule = new \Home\Model\ScheduleModel();
+        $result = $schedule->deleteScheduleByTId($tId,$schedId);
+        if($result == 1){
+            $result = true;
+        }else{
+            $result = false;
+        }
+        $this->ajaxReturn($result);
+    }
+    
 }

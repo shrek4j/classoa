@@ -15,6 +15,7 @@ class UserController extends Controller {
         $result = $user->queryUser($loginname,$password);
         if(!empty($result) && count($result) == 1){
             session('tId',$result[0]['teacher_id']);
+            session('instId',$result[0]['inst_id']);
             $this->success('登陆成功', '/index.php/Home/Schedule/show',2);
         }else{
             $this->error('登陆失败');

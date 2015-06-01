@@ -24,5 +24,16 @@ class ScheduleModel extends Model {
         $querySql = "UPDATE classoa_schedule_template SET day_of_week=".$dayOfWeek.",start_time='".$startTime."',end_time='".$endTime."' WHERE teacher_id=".$tId." and schedule_id=".$schedId;
         return $this->execute($querySql);  
     }
+    
+    public function saveScheduleByTId($tId,$classTag,$dayOfWeek,$startTime,$endTime){
+        $sql = "insert into classoa_schedule_template(teacher_id,day_of_week,start_time,end_time,class_tag) values(".$tId.",".$dayOfWeek.",'".$startTime."','".$endTime."','".$classTag."')";
+        $this->execute($sql);
+        $queryIdSql = "SELECT @@IDENTITY as schedId";
+        return $this->query($queryIdSql);
+    }
+    
+    public function deleteScheduleByTId($tId,$schedId){
+        $sql = "delete from classoa_schedule_template where teacher_id=".$tId." and schedule_id=".$schedId;
+        return $this->execute($sql);
+    }
 }
-

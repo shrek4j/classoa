@@ -9,7 +9,12 @@ class ScheduleController extends Controller {
         $schedule = new \Home\Model\ScheduleModel();
         $scheduleList = $schedule->queryByTeacherId($tId);
         
+        $thisMonday = getThisMonday();
+        $dateList = getDateList(18);
+        
         $this->assign('scheduleList',$scheduleList);
+        $this->assign('thisMonday',$thisMonday);
+        $this->assign('dateList',$dateList);
         $this->display();
     }
     
@@ -52,4 +57,37 @@ class ScheduleController extends Controller {
         $this->ajaxReturn($result);
     }
     
+}
+
+function getDateList($total){
+    $thisMonday = getThisMonday();
+    //默认添加三个月的，10周
+    $dateList[0] = $thisMonday;
+    for($i=1;$i<$total;$i++){
+        $dateList[$i] = getAnyMonday($thisMonday,$i);
+    }
+    return $dateList;
+}
+
+function getThisMonday(){
+    $timestamp=0;
+    $is_return_timestamp=false;
+    static $cache ;  
+    $id = $timestamp.$is_return_timestamp;  
+    if(!isset($cache[$id])){  
+        if(!$timestamp) $timestamp = time();  
+        $monday_date = date('Ymd', $timestamp-86400*date('w',$timestamp)+(date('w',$timestamp)>0?86400:-/*6*86400*/518400));  
+        if($is_return_timestamp){  
+            $cache[$id] = strtotime($monday_date);  
+        }else{  
+            $cache[$id] = $monday_date;  
+        }  
+    }  
+    return $cache[$id];
+}  
+
+function getAnyMonday($anyMonday,$weekCount){
+    $anyDate = strtotime($anyMonday);
+    $thismonday = $anyDate + 7*86400*$weekCount;
+    return date('Ymd',$thismonday);
 }

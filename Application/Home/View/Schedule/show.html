@@ -87,12 +87,14 @@
         }
     </style>
     
-    <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/default/easyui.css">
-    <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/icon.css">
+     <link rel="stylesheet" type="text/css" href="/Public/js/jquery/easyui/themes/default/easyui.css">
+  <!--   <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/icon.css"> -->
   <!--  <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/demo/demo.css"> -->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
-    <script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
-    
+   <!--   <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script> -->
+   <!--   <script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script> -->
+    <script type="text/javascript" src="/Public/js/jquery/jquery-1.5.1.min.js"></script>
+    <script type="text/javascript" src="/Public/js/jquery/easyui/jquery.easyui.min.js"></script>	
+
     <script type="text/javascript">
         var default_width = '78px';//单元格width=80,div设成78，有2px是border的
         var default_height = 24;//单元格的height
@@ -133,7 +135,7 @@
         //创建一个课程div
         function createDiv(id,dayOfWeek,startTime,endTime,top,height,left,width,classTag){
             var div=$('<div class="defaultClassDiv" data-options="handle:\'#'+id+'\',onDrag:onDrag,onStopDrag:onStopDrag,onStopResize:onStopResize" onmouseover="mouseover(this);">' +
-                        '<div id="'+id+'" style="padding:4px;background:#065FB9;color:#fff;font-family:Arial;">'+classTag+'</div>' +
+                        '<div id="'+id+'" style="padding:4px;background:#065FB9;color:#fff;font-family:Arial;word-wrap:break-word;">'+classTag+'</div>' +
                         '</div>');        //创建一个div
             div.attr('id',id);        //给div设置id
             div.attr('dayOfWeek',dayOfWeek);
@@ -473,7 +475,7 @@
         });
     </script>
     </head>
-    <body style="background:#90d7ec;">
+    <body style="background:#f1f5f8;margin:0px;">
         <div id="scheduleEditBG" style="display:none;background: black;opacity:0.9;position:fixed;width:100%;height:100%;z-index:998;">
         </div>
 
@@ -497,7 +499,7 @@
             <div id="manageClass" style="cursor:pointer;position:absolute;height:50%;width:7%;left:0%;background:#ffc20e;color:white;font-family:'黑体';font-size:40px;">
                 <div style="margin-left:30%;margin-top:100px;">管<br>理<br>课<br>程</div>
             </div>
-            <div id="manageStudent" style="cursor:pointer;position:absolute;height:50%;top:51%;width:7%;left:0%;background:#fffef9;opacity:0.7;color:black;font-family:'黑体';font-size:40px;">
+            <div id="manageStudent" style="cursor:pointer;position:absolute;height:50%;top:50%;width:7%;left:0%;background:#fffef9;opacity:0.7;color:black;font-family:'黑体';font-size:40px;">
                 <div style="margin-left:30%;margin-top:100px;">管<br>理<br>学<br>生</div>
             </div>
         </div>

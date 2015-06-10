@@ -495,38 +495,39 @@
                 <input class="sign-button" type="button" value="关闭" onclick="resetSaveSchedulePanel();"/>
             </div>
         </div>
-        <div id="operationBar">
-            <div id="manageClass" style="cursor:pointer;position:absolute;height:50%;width:7%;left:0%;background:#ffc20e;color:white;font-family:'黑体';font-size:40px;">
-                <div style="margin-left:30%;margin-top:100px;">管<br>理<br>课<br>程</div>
-            </div>
-            <div id="manageStudent" style="cursor:pointer;position:absolute;height:50%;top:50%;width:7%;left:0%;background:#fffef9;opacity:0.7;color:black;font-family:'黑体';font-size:40px;">
-                <div style="margin-left:30%;margin-top:100px;">管<br>理<br>学<br>生</div>
-            </div>
-        </div>
         <div id="trashCan" style="position:absolute;height:100%;width:7%;left:93%;background:#1b315e;opacity:0.8;color:white;font-family:'黑体';font-size:40px;">
             <div style="margin-left:30%;margin-top:100px;">拖<br>到<br>此<br>处<br>删<br>除<br>课<br>程</div>
         </div>
-        
-        <table style="position:absolute;height:100%;width:7%;left:10%;border: 2px solid #b2d235;">
-            <tr>
-                <td style="background: #5c7a29;color:white;font-family:Helvetica;font-size:14px;text-align:center;height:5%;">
-                    管理课程
-                </td>
-            </tr>
-            <foreach name="dateList" item="vo" >
-            <tr>
-                <td <if condition="$thisMonday eq $vo">selectedWeek="true"</if> class="future_monday" style="background:
-                    <if condition="$thisMonday eq $vo">
-                        #f47920
-                    <else /> 
-                        #7fb80e
-                    </if>
-                    ;">
-                {$vo}
-                </td>
-            </tr> 
-            </foreach>
-        </table>
+        <div id="operationBar">
+            <div id="manageClass" style="cursor:pointer;height:5%;width:100%;left:0%;top:0%;background:#ffc20e;color:white;font-family:'黑体';font-size:20px;">
+                <div style="">管理教师</div>
+            </div>
+            <div id="manageStudent" style="cursor:pointer;height:5%;width:100%;left:0%;background:#fffef9;opacity:0.7;color:black;font-family:'黑体';font-size:20px;">
+                <div style="">管理学生</div>
+            </div>
+            <div id="timeLine">
+                <table style="height:6%;width:100%;left:0%;border: 2px solid #b2d235;">
+                    <tr>
+                        <td style="background: #5c7a29;color:white;font-family:Helvetica;font-size:14px;text-align:center;height:5%;">
+                            管理课程
+                        </td>
+                    
+                    <foreach name="dateList" item="vo" >
+
+                        <td <if condition="$thisMonday eq $vo">selectedWeek="true"</if> class="future_monday" style="background:
+                            <if condition="$thisMonday eq $vo">
+                                #f47920
+                            <else /> 
+                                #7fb80e
+                            </if>
+                            ;">
+                        {$vo}
+                        </td>
+                    </foreach>
+                    </tr> 
+                </table>
+            </div>
+        </div>
         
         <div id="divIncluder">
         </div>
@@ -623,4 +624,12 @@
         </table>
         </div>
     </body>
+    <empty name="teacherList">
+    <script type="text/javascript">
+        $(function(){
+            $(".right").remove();
+            $("#timeLine").remove();
+        });
+    </script>
+    </empty>
  </html>

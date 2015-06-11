@@ -7,8 +7,8 @@ class AuthCheckBehavior extends \Think\Behavior{
         if(strpos($uri,'/User/login') || strpos($uri,'/User/doLogin')){//在这里写列表，可以不做检查
             $return = true;
         }else{
-            $tId = session('tId');
-            if(!empty($tId)){
+            $userId = session('userId');
+            if(!empty($userId)){
                 $return = true;
             }else{
                  header('Content-Type: text/html; charset=utf-8');

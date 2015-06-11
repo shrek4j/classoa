@@ -3,15 +3,16 @@ namespace Home\Controller;
 use Think\Controller;
 class ScheduleController extends Controller {
 
-    public function show(){
+    public function show($tId=0){
         $instId = session('instId');
         $teacher = new \Home\Model\TeacherModel();
         $teacherList = $teacher->queryAllTeachersByInstId($instId);
 
         if(count($teacherList) > 0){
-            $tId = $teacherList[0]['teacher_id'];
-            session('tId',$tId);
-        
+            if($tId == 0){
+                $tId = $teacherList[0]['teacher_id'];
+                session('tId',$tId);
+            }
             $schedule = new \Home\Model\ScheduleModel();
             $scheduleList = $schedule->queryByTeacherId($tId);
             $thisMonday = getThisMonday();
@@ -20,6 +21,7 @@ class ScheduleController extends Controller {
             $this->assign('dateList',$dateList);
             $this->assign('scheduleList',$scheduleList);
             $this->assign('teacherList',$teacherList);
+            $this->assign('tId',$tId);
         }
         $this->display();
     }

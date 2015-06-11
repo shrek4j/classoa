@@ -85,6 +85,10 @@
         .future_monday{
             cursor:pointer;height:5%;opacity:1;color:white;font-family:Helvetica;font-size:14px;text-align:center;
         }
+        
+        .teacher_div{
+            cursor:pointer;height:5%;opacity:1;color:white;font-family:Helvetica;font-size:14px;text-align:center;width:100px;
+        }
     </style>
     
      <link rel="stylesheet" type="text/css" href="/Public/js/jquery/easyui/themes/default/easyui.css">
@@ -422,28 +426,7 @@
     
     <script type="text/javascript">
         $(function(){
-            $("#manageClass").mousedown(
-                function(){
-                    $(this).css('background','#fcaf17');
-                }
-            );
-            $("#manageClass").mouseup(
-                function(){
-                    $(this).css('background','#ffc20e');
-                }
-            );
-            
-            $("#manageStudent").mousedown(
-                function(){
-                    $(this).css('opacity','1');
-                }
-            );
-            $("#manageStudent").mouseup(
-                function(){
-                    $(this).css('opacity','0.7');
-                }
-            );
-            
+       
             $(".future_monday").mouseover(
                 function(){
                     if($(this).attr('selectedWeek') == 'true'){
@@ -472,13 +455,49 @@
                     $(this).css('background','#f47920');
                 }
             );
+            
+            $(".teacher_div").mouseover(
+                function(){
+                    if($(this).attr('selectedTeacher') == 'true'){
+                    
+                    }else{   
+                        $(this).css('background','#bed742');
+                    }
+                }
+            );
+            $(".teacher_div").mouseout(
+                function(){
+                    if($(this).attr('selectedTeacher') == 'true'){
+                         
+                    }else{
+                       $(this).css('background','#7fb80e'); 
+                    }
+                    
+                }
+            );
+            
+            $(".teacher_div").click(
+                function(){
+                    $(".teacher_div[selectedTeacher='true']").css('background','#7fb80e'); 
+                    $(".teacher_div[selectedTeacher='true']").attr('selectedTeacher','false');
+                    $(this).attr('selectedTeacher','true');
+                    $(this).css('background','#f47920');
+                    
+                    var tId = $(this).attr('teacher_id');
+                    $("#tId").val(tId);
+                    $("#showSchedule").submit();
+                }
+            );
         });
     </script>
     </head>
     <body style="background:#f1f5f8;margin:0px;">
+        <form action="show" method="post" id="showSchedule">
+            <input type="hidden" name="tId" id="tId" value="{$tId}"/>
+        </form>
+
         <div id="scheduleEditBG" style="display:none;background: black;opacity:0.9;position:fixed;width:100%;height:100%;z-index:998;">
         </div>
-
         <div id="scheduleEdit" style="display:none;color: white;position:absolute;z-index:999;font-family: '黑体';">
             <div class="input-wrapper">
                 <span>课程标签：</span>
@@ -495,21 +514,40 @@
                 <input class="sign-button" type="button" value="关闭" onclick="resetSaveSchedulePanel();"/>
             </div>
         </div>
-        <div id="trashCan" style="position:absolute;height:100%;width:7%;left:93%;background:#1b315e;opacity:0.8;color:white;font-family:'黑体';font-size:40px;">
+        <div id="trashCan" style="position:absolute;height:100%;width:7%;top:16%;left:93%;background:#1b315e;opacity:0.8;color:white;font-family:'黑体';font-size:40px;">
             <div style="margin-left:30%;margin-top:100px;">拖<br>到<br>此<br>处<br>删<br>除<br>课<br>程</div>
         </div>
         <div id="operationBar">
-            <div id="manageClass" style="cursor:pointer;height:5%;width:100%;left:0%;top:0%;background:#ffc20e;color:white;font-family:'黑体';font-size:20px;">
-                <div style="">管理教师</div>
-            </div>
             <div id="manageStudent" style="cursor:pointer;height:5%;width:100%;left:0%;background:#fffef9;opacity:0.7;color:black;font-family:'黑体';font-size:20px;">
                 <div style="">管理学生</div>
+                <div class="studentList"></div>
             </div>
-            <div id="timeLine">
-                <table style="height:6%;width:100%;left:0%;border: 2px solid #b2d235;">
+            <div id="manageClass">
+                <table style="height:6%;left:0%;border:5px;">
                     <tr>
-                        <td style="background: #5c7a29;color:white;font-family:Helvetica;font-size:14px;text-align:center;height:5%;">
-                            管理课程
+                        <td style="background: #5c7a29;color:white;font-family:Helvetica;font-size:14px;text-align:center;height:5%;width:100px;">
+                            教师
+                        </td>
+                        <foreach name="teacherList" item="vo" >
+                            <td teacher_id="{$vo.teacher_id}" <if condition="$tId eq $vo['teacher_id']">selectedTeacher="true"</if> class="teacher_div" style="background:
+                                <if condition="$tId eq $vo['teacher_id']">
+                                    #f47920
+                                <else /> 
+                                    #7fb80e
+                                </if>
+                                ;">
+                            {$vo.name}
+                        </td>
+                    </foreach>
+                    </tr>
+                </table>
+            </div>
+            
+            <div id="timeLine">
+                <table style="height:6%;width:100%;left:0%;">
+                    <tr>
+                        <td style="background: #5c7a29;color:white;font-family:Helvetica;font-size:14px;text-align:center;height:5%;width:100px;">
+                            课表
                         </td>
                     
                     <foreach name="dateList" item="vo" >
@@ -524,6 +562,9 @@
                         {$vo}
                         </td>
                     </foreach>
+                        <td class="future_monday" style="background:#7fb80e;">
+                            更多......
+                        </td>
                     </tr> 
                 </table>
             </div>
@@ -533,7 +574,7 @@
         </div>
         <div class="right">
         <table align="center"
-         style="background:#f6f5ec;font-family:Arial,'黑体'; font-size: middle; border: 2px solid black; height:700px;text-align:center">
+         style="margin-top:5px;background:#f6f5ec;font-family:Arial,'黑体'; font-size: middle; border: 2px solid black; height:700px;text-align:center">
             <tr></tr>
                 <td width="80px"></td><td width="80px" id="1_" class="topTdLeft">星期一</td><td width="80px" id="2_"class="topTdLeft">星期二</td><td width="80px" id="3_"class="topTdLeft">星期三</td><td width="80px" id="4_"class="topTdLeft">星期四</td><td width="80px" id="5_"class="topTdLeft">星期五</td><td width="80px" id="6_"class="topTdLeft">星期六</td><td width="80px" id="7_"class="topTdLeft">星期日</td>
             </tr>

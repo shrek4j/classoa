@@ -10,9 +10,10 @@ class ScheduleController extends Controller {
 
         if(count($teacherList) > 0){
             if($tId == 0){
-                $tId = $teacherList[0]['teacher_id'];
-                session('tId',$tId);
+                $tId = $teacherList[0]['teacher_id'];   
             }
+            session('tId',$tId);
+            
             $schedule = new \Home\Model\ScheduleModel();
             $scheduleList = $schedule->queryByTeacherId($tId);
             $thisMonday = getThisMonday();

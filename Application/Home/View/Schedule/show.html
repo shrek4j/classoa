@@ -488,7 +488,15 @@
                     $("#showSchedule").submit();
                 }
             );
+            
+            $(".edit_class").click(
+                function(){
+                    location.href = "/index.php/Home/Teacher/show";
+                }
+            );
         });
+        
+        
     </script>
     </head>
     <body style="background:#f1f5f8;margin:0px;">
@@ -525,7 +533,7 @@
             <div id="manageClass">
                 <table style="height:6%;left:0%;border:5px;">
                     <tr>
-                        <td style="background: #5c7a29;color:white;font-family:Helvetica;font-size:14px;text-align:center;height:5%;width:100px;">
+                        <td class="edit_class" style="cursor:pointer;background: #5c7a29;color:white;font-family:Helvetica;font-size:14px;text-align:center;height:5%;width:100px;">
                             教师
                         </td>
                         <foreach name="teacherList" item="vo" >

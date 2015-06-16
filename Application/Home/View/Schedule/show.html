@@ -494,6 +494,12 @@
                     location.href = "/index.php/Home/Teacher/show";
                 }
             );
+            
+            $(".edit_student").click(
+                function(){
+                    location.href = "/index.php/Home/Student/show";
+                }
+            );
         });
         
         
@@ -526,10 +532,10 @@
             <div style="margin-left:30%;margin-top:100px;">拖<br>到<br>此<br>处<br>删<br>除<br>课<br>程</div>
         </div>
         <div id="operationBar">
-        <!--    <div id="manageStudent" style="height:5%;width:100%;left:0%;background:#fffef9;opacity:0.7;color:black;font-family:'黑体';font-size:20px;">
-                <div style="cursor:pointer;">管理学生</div>
+            <div class="edit_student" style="cursor:pointer;background: #5c7a29;color:white;font-family:Helvetica;font-size:14px;text-align:center;height:5%;width:100px;">
+                管理学生
             </div>
-        -->
+        
             <div id="manageClass">
                 <table style="height:6%;left:0%;border:5px;">
                     <tr>

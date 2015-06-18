@@ -3,7 +3,7 @@ namespace Home\Controller;
 use Think\Controller;
 class ScheduleController extends Controller {
 
-    public function show($tId=0){
+    public function show($tId=0,$effectMonday=0){ 
         $instId = session('instId');
         $teacher = new \Home\Model\TeacherModel();
         $teacherList = $teacher->queryAllTeachersByInstId($instId);
@@ -14,14 +14,21 @@ class ScheduleController extends Controller {
             }
             session('tId',$tId);
             
-            $schedule = new \Home\Model\ScheduleModel();
-            $scheduleList = $schedule->queryByTeacherId($tId);
+            if($effectMonday == 0){
+                $effectMonday = getThisMonday();
+            }
+            session('effectMonday',$effectMonday);
+            
+            $schedule = new \Home\Model\ScheduleModel(); 
+            $scheduleList = $schedule->queryByTeacherId($tId,$effectMonday);
+            
             $thisMonday = getThisMonday();
             $dateList = getDateList(10);
             $this->assign('thisMonday',$thisMonday);
             $this->assign('dateList',$dateList);
             $this->assign('scheduleList',$scheduleList);
             $this->assign('teacherList',$teacherList);
+            $this->assign('effectMonday',$effectMonday);
             $this->assign('tId',$tId);
         }
         $this->display();
@@ -42,9 +49,10 @@ class ScheduleController extends Controller {
     
     public function saveSchedule($classTag,$dayOfWeek,$startTime,$endTime){
         $tId = session('tId');
+        $effectMonday = session('effectMonday');
     
         $schedule = new \Home\Model\ScheduleModel();
-        $result = $schedule->saveScheduleByTId($tId,$classTag,$dayOfWeek,$startTime,$endTime);
+        $result = $schedule->saveScheduleByTId($tId,$classTag,$dayOfWeek,$startTime,$endTime,$effectMonday);
         if(empty($result)){
             $result = "false";
         }else{
@@ -53,11 +61,11 @@ class ScheduleController extends Controller {
         $this->ajaxReturn($result);
     }
     
-    public function deleteSchedule($schedId){
+    public function deleteSchedule($schedId,$expireMonday){
         $tId = session('tId');
         
         $schedule = new \Home\Model\ScheduleModel();
-        $result = $schedule->deleteScheduleByTId($tId,$schedId);
+        $result = $schedule->deleteScheduleByTId($tId,$schedId,$expireMonday);
         if($result == 1){
             $result = true;
         }else{
@@ -68,6 +76,8 @@ class ScheduleController extends Controller {
     
 }
 
+
+//公共方法
 function getDateList($total){
     $thisMonday = getThisMonday();
     //默认添加三个月的，10周

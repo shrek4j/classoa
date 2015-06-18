@@ -389,10 +389,11 @@
         function deleteSchedule(){
             //检测是否重合
             if(isOverlapped()){
+                var expireMonday = $("#effectMonday").val();
                 $.ajax({
                    type: "POST",
                    url: "deleteSchedule",
-                   data: "schedId="+currId,
+                   data: "schedId="+currId+"&expireMonday="+expireMonday,
                    success: function(msg){
                     if(msg){
                         $("#"+currId).remove();
@@ -453,6 +454,10 @@
                     $(".future_monday[selectedWeek='true']").attr('selectedWeek','false');
                     $(this).attr('selectedWeek','true');
                     $(this).css('background','#f47920');
+                    
+                    var effectMonday = $(this).attr('effectMonday');
+                    $("#effectMonday").val(effectMonday);
+                    $("#showSchedule").submit();
                 }
             );
             
@@ -489,17 +494,6 @@
                 }
             );
             
-            $(".edit_class").click(
-                function(){
-                    location.href = "/index.php/Home/Teacher/show";
-                }
-            );
-            
-            $(".edit_student").click(
-                function(){
-                    location.href = "/index.php/Home/Student/show";
-                }
-            );
         });
         
         
@@ -508,6 +502,7 @@
     <body style="background:#f1f5f8;margin:0px;">
         <form action="show" method="post" id="showSchedule">
             <input type="hidden" name="tId" id="tId" value="{$tId}"/>
+            <input type="hidden" name="effectMonday" id="effectMonday" value="{$effectMonday}"/>
         </form>
 
         <div id="scheduleEditBG" style="display:none;background: black;opacity:0.9;position:fixed;width:100%;height:100%;z-index:998;">
@@ -532,14 +527,14 @@
             <div style="margin-left:30%;margin-top:100px;">拖<br>到<br>此<br>处<br>删<br>除<br>课<br>程</div>
         </div>
         <div id="operationBar">
-            <div class="edit_student" style="cursor:pointer;background: #5c7a29;color:white;font-family:Helvetica;font-size:14px;text-align:center;height:5%;width:100px;">
-                管理学生
+            <div style="color:white;font-family:Helvetica;font-size:14px;text-align:center;width:300px;margin: 10px;">
+                <a style="margin: 20px;" href="/index.php/Home/Student/show">管理学生</a> <a style="margin: 20px;" href="/index.php/Home/Teacher/show">管理教师</a>
             </div>
         
             <div id="manageClass">
                 <table style="height:6%;left:0%;border:5px;">
                     <tr>
-                        <td class="edit_class" style="cursor:pointer;background: #5c7a29;color:white;font-family:Helvetica;font-size:14px;text-align:center;height:5%;width:100px;">
+                        <td class="edit_class" style="background: #5c7a29;color:white;font-family:Helvetica;font-size:14px;text-align:center;height:5%;width:100px;">
                             教师
                         </td>
                         <foreach name="teacherList" item="vo" >
@@ -566,8 +561,8 @@
                     
                     <foreach name="dateList" item="vo" >
 
-                        <td <if condition="$thisMonday eq $vo">selectedWeek="true"</if> class="future_monday" style="background:
-                            <if condition="$thisMonday eq $vo">
+                        <td effectMonday="{$vo}" <if condition="$effectMonday eq $vo">selectedWeek="true"</if> class="future_monday" style="background:
+                            <if condition="$effectMonday eq $vo">
                                 #f47920
                             <else /> 
                                 #7fb80e

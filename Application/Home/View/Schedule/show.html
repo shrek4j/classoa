@@ -139,7 +139,9 @@
         //创建一个课程div
         function createDiv(id,dayOfWeek,startTime,endTime,top,height,left,width,classTag){
             var div=$('<div class="defaultClassDiv" data-options="handle:\'#'+id+'\',onDrag:onDrag,onStopDrag:onStopDrag,onStopResize:onStopResize" onmouseover="mouseover(this);">' +
-                        '<div id="'+id+'" style="padding:4px;background:#065FB9;color:#fff;font-family:Arial;word-wrap:break-word;">'+classTag+'</div>' +
+                        '<div id="'+id+'" style="padding:10px;background:#065FB9;color:#fff;font-family:Arial;word-wrap:break-word;"></div>' +
+                        '<div id="'+id+'Div" ondblclick="toUpdateClassTag('+id+')" style="padding:3px;cursor:pointer;font-family:Arial;word-wrap:break-word">'+classTag+'</div>' +
+                        '<input style="display:none;" id="'+id+'Input" onblur="updateClassTag('+id+',this)" value="'+classTag +'"/>'+
                         '</div>');        //创建一个div
             div.attr('id',id);        //给div设置id
             div.attr('dayOfWeek',dayOfWeek);
@@ -155,6 +157,32 @@
                 edge:15
             });
                     
+        }
+        
+        function toUpdateClassTag(id){
+            $("#"+id+"Input").show();
+            $("#"+id+"Input").focus();
+            $("#"+id+"Div").hide();
+        }
+        
+        function updateClassTag(id,div){
+            if(div.value == ""){
+                $("#"+id+"Input").val($("#"+id+"Div").innerHTML);                
+                $("#"+id+"Input").hide();
+                $("#"+id+"Div").show();
+                return;
+            }
+            $.ajax({
+               type: "POST",
+               url: "updateClassTag",
+               data: "schedId="+id+"&classTag="+div.value,
+               success: function(msg){
+                    $("#"+id+"Input").hide();
+                    $("#"+id+"Div")[0].innerHTML = div.value;
+                    $("#"+id+"Div").show();
+               }
+            });
+            
         }
         </script>
         
@@ -523,6 +551,24 @@
                 <input class="sign-button" type="button" value="关闭" onclick="resetSaveSchedulePanel();"/>
             </div>
         </div>
+        <div id="scheduleUpdate" style="display:none;color: white;position:absolute;z-index:999;font-family: '黑体';">
+            <div class="input-wrapper">
+                <span>课程标签：</span>
+                <input placeholder="该文字会显示在课程上" maxlength="128" name="edit_class_tag" id="edit_class_tag"/>
+            </div>
+            <input hidden="true" name="update_class_td" id="update_class_td"/>
+            <input hidden="true" name="update_day_of_week" id="update_day_of_week"/>
+            <input hidden="true" name="update_start_time" id="update_start_time"/>
+            <input hidden="true" name="update_end_time" id="update_end_time"/>
+            <div class="button-wrapper command">
+                <input id="updateScheduleSubmitBtn" class="sign-button" type="button" value="更新课程"/>
+            </div>
+            <div class="button-wrapper command">
+                <input class="sign-button" type="button" value="关闭" onclick="resetUpdateSchedulePanel();"/>
+            </div>
+        </div>
+        
+        
         <div id="trashCan" style="position:absolute;height:100%;width:7%;top:16%;left:93%;background:#1b315e;opacity:0.8;color:white;font-family:'黑体';font-size:40px;">
             <div style="margin-left:30%;margin-top:100px;">拖<br>到<br>此<br>处<br>删<br>除<br>课<br>程</div>
         </div>

@@ -37,4 +37,9 @@ class ScheduleModel extends Model {
         $sql = "update classoa_schedule_template set monday_of_expire_week=".$expireMonday." where teacher_id=".$tId." and schedule_id=".$schedId;
         return $this->execute($sql);
     }
+    
+    public function updateClassTagBySchedId($tId,$schedId,$classTag){
+        $querySql = "UPDATE classoa_schedule_template SET class_tag='".$classTag."' WHERE teacher_id=".$tId." and schedule_id=".$schedId;
+        return $this->execute($querySql);  
+    }
 }

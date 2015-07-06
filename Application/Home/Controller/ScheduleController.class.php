@@ -74,6 +74,18 @@ class ScheduleController extends Controller {
         $this->ajaxReturn($result);
     }
     
+    public function updateClassTag($schedId,$classTag){
+        $tId = session('tId');
+        $schedule = new \Home\Model\ScheduleModel();
+        $result = $schedule->updateClassTagBySchedId($tId,$schedId,$classTag);
+        if($result == 1){
+            $result = true;
+        }else{
+            $result = false;
+        }
+        $this->ajaxReturn($result);
+    }
+    
 }
 
 
